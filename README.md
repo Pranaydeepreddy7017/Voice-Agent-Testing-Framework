@@ -1,5 +1,5 @@
 
-# PrettyGoodAI Setup Guide
+# Setup Guide
 
 ## Prerequisites
 - Python 3.8+
