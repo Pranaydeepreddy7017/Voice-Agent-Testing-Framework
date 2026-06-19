@@ -1,4 +1,4 @@
-🎙️ AI-to-AI Voice Agent Red Teaming
+## 🎙️ AI-to-AI Voice Agent Red Teaming
 Stress-test your voice agents with dynamic, LLM-driven personas before your users do.
 
 Most voice agent bugs only surface when conversations go off-script—interruptions, weird questions, and edge-case behaviors. This framework doesn't just ping your /voice endpoint; it deploys autonomous AI caller agents to actively probe, converse with, and evaluate your Twilio-powered bot.
@@ -16,8 +16,6 @@ Full Transcript Capture: Every AI-to-AI dialogue is saved to transcripts/{call_s
 Call State Tracking: JSON snapshots of each call's lifecycle in data/calls/{call_sid}.json.
 
 Automated Evaluation: Post-run analysis scores the target bot on quality, coherence, and goal-completion against the adversarial caller.
-
-## Architecture
 
 ## Architecture: AI-to-AI Red Teaming
 
