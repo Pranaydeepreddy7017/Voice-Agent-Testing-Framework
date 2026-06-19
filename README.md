@@ -1,24 +1,21 @@
-# 🎙️ Voice Agent Testing Framework
+🎙️ AI-to-AI Voice Agent Red Teaming
+Stress-test your voice agents with dynamic, LLM-driven personas before your users do.
 
-**Stress-test your AI voice agents before your users do.**
+Most voice agent bugs only surface when conversations go off-script—interruptions, weird questions, and edge-case behaviors. This framework doesn't just ping your /voice endpoint; it deploys autonomous AI caller agents to actively probe, converse with, and evaluate your Twilio-powered bot.
 
-Most voice agent bugs only surface at scale — overlapping calls, unexpected pauses, edge-case transcriptions. This framework lets you simulate dozens of concurrent inbound calls against your Twilio-powered voice agent, record every transcript, and run automated QA analysis — all from your local machine in under 5 minutes.
+By orchestrating OpenAI caller personas through a local Flask backend, you can simulate dozens of concurrent, unpredictable human interactions, record every transcript, and run automated QA analysis—all from your local machine in under 5 minutes.
 
-Whether you're tuning a customer support bot, an appointment scheduler, or any conversational voice system, this gives you a tight loop between *"does it work?"* and *"here's exactly where it broke."*
+What It Does:
 
----
+LLM-Driven Caller Personas: Spin up unique AI callers with specific goals (e.g., "angry customer," "confused senior") to dynamically pressure-test your bot's conversational logic.
 
-## What It Does
+Concurrent Call Simulation: Spawn N simultaneous inbound calls to hammer your system and catch latency or state-management failures at scale.
 
-| Capability | Details |
-|---|---|
-| **Concurrent call simulation** | Spawn N simultaneous inbound calls via Twilio to hammer your `/voice` endpoint |
-| **Full transcript capture** | Every call's dialogue saved to `transcripts/{call_sid}.txt` |
-| **Call state tracking** | JSON snapshots of each call's lifecycle in `data/calls/{call_sid}.json` |
-| **Automated QA analysis** | Post-run analysis script scores transcripts for quality, coherence, and failure patterns |
-| **Local + tunneled** | Runs entirely on localhost; ngrok exposes your server to Twilio's webhooks |
+Full Transcript Capture: Every AI-to-AI dialogue is saved to transcripts/{call_sid}.txt.
 
----
+Call State Tracking: JSON snapshots of each call's lifecycle in data/calls/{call_sid}.json.
+
+Automated Evaluation: Post-run analysis scores the target bot on quality, coherence, and goal-completion against the adversarial caller.
 
 ## Architecture
 
