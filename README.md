@@ -19,24 +19,35 @@ Automated Evaluation: Post-run analysis scores the target bot on quality, cohere
 
 ## Architecture
 
-```
-run_calls.py
-    │
-    ├─ Twilio API ──► dials your Twilio number
-    │                       │
-    │               Twilio webhook ──► ngrok tunnel
-    │                                       │
-    │                               localhost:5000
-    │                               (server.py)
-    │                                   │
-    │                           /voice endpoint
-    │                           (your AI agent)
-    │
-    └─ transcripts/ + data/calls/
-            │
-    analyze_calls.py ──► QA report
-```
+## Architecture: AI-to-AI Red Teaming
 
+This framework essentially pits two AI models against each other over a live phone call, actively logging the results.
+
+🤖 Evaluation Environment                   🤖 The Target System
+==============================                   ====================
+
+[LLM Caller Agent] 
+(Dynamically acts as the user and
+speaks with the voice agnet
+with Adjustable Personas)
+       │
+       ▼
+[Local Server] 
+(server.py logs transcripts & state)
+       │
+       ▼
+[ngrok tunnel]
+       │
+       ▼
+[Twilio Account A] ─────────(Live Audio)───────► [Target Phone Number]
+                                                         │
+                                                         ▼
+                                                 [Target AI Agent]
+                                                 (The AI voice agent being tested)
+
+==============================
+Post-Call Analytics:
+transcripts/ ──> analyze_calls.py ──> [LLM QA Scorecard]
 ---
 
 ## Prerequisites
